@@ -1,14 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlayerComponent } from './player/player.component';
-import { ViraComponent } from './round/vira/vira.component';
 import { HandComponent } from './round/hand/hand.component';
 import { ActionComponent } from './round/action/action.component';
+import { GameComponent } from './game.component';
+import { RoundComponent } from './round/round.component';
+import { CardDeckComponent } from './card-deck/card-deck.component';
 
 @NgModule({
-  declarations: [PlayerComponent, ViraComponent, HandComponent, ActionComponent],
+  declarations: [
+      PlayerComponent,
+      HandComponent,
+      ActionComponent,
+      GameComponent,
+      RoundComponent,
+      CardDeckComponent
+    ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    GameComponent
   ]
 })
 export class GameModule { }

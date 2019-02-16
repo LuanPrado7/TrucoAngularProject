@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViraComponent } from './vira.component';
+import { CardDeckComponent } from './card-deck.component';
 
-describe('ViraComponent', () => {
-  let component: ViraComponent;
-  let fixture: ComponentFixture<ViraComponent>;
+describe('CardDeckComponent', () => {
+  let component: CardDeckComponent;
+  let fixture: ComponentFixture<CardDeckComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViraComponent ]
+      declarations: [ CardDeckComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViraComponent);
+    fixture = TestBed.createComponent(CardDeckComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
