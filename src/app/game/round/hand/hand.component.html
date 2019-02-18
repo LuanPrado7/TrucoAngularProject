@@ -1,3 +1,7 @@
-<p>
-  hand works!
-</p>
+<div class="row">
+    <div [ngStyle]="{'display': 'inline-flex'}">
+        <div *ngFor="let card of playerHand">        
+            <img class="card" [src]="card.imgSrc">  
+        </div>
+    </div>
+</div>

@@ -8,12 +8,12 @@ import { Card } from './card-deck/card-deck';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit  {
-
-  constructor() { }
-
+  
   @ViewChild (CardDeckComponent) cardDeckComp: CardDeckComponent;
   cardDeck: Card[] = [];
   
+  constructor() { }
+ 
   ngOnInit () {
       this.cardDeck = this.cardDeckComp.getCardDeck();
   }

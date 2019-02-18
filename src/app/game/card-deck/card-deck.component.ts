@@ -8,10 +8,10 @@ import { Card } from './card-deck';
 })
 export class CardDeckComponent {
 
-  constructor() { }
-
   cardNumbers: string[] = ['4', '5', '6', '7', 'Q', 'J', 'K', 'A', '2', '3'];
   cardSuits: string[] = ['P', 'E', 'C', 'Z'];
+
+  constructor() { }
 
   getCardDeck(): Card[] {
     return this.organizeDeck(this.cardNumbers, this.cardSuits);
@@ -26,7 +26,8 @@ export class CardDeckComponent {
          card = {
            number: number,
            suit: suit,
-           value: i + 1
+           value: i + 1,
+           imgSrc: 'assets/cards/' + (number + suit) + '.png'
          }
 
          deck.push(card);
