@@ -14,28 +14,45 @@ export class RoundComponent implements OnInit  {
   playersHand: Array<Card[]>;
   
   constructor() { 
-    this.nPlayers = 2;
+    this.nPlayers = 4;
     this.playersHand = [];
   }
 
   ngOnInit () {
-     this.distributeCards(this.nPlayers, this.cardDeck);
+    this.vira = this.defineVira();
+    this.increaseValueShackles(this.vira);
+    this.distributeCards(this.nPlayers);
   }
 
-  distributeCards(nPlayer, cardDeck): void {    
+  defineVira(): Card {
+    return this.cardDeck.splice(Math.floor(Math.random() * this.cardDeck.length), 1)[0];
+  }
+
+  distributeCards(nPlayer): void {    
+
     for(let i = 0; i < nPlayer; i++) {
-      let playerHand: Card[] = [];
+    	let playerHand: Card[] = [];
 
       for(let j = 0; j < 3; j++) {
-        let indexCard = Math.floor(Math.random() * cardDeck.length);
-        playerHand.push(cardDeck[indexCard]);
-        cardDeck.splice(indexCard, 1);
+        let indexCard = Math.floor(Math.random() * this.cardDeck.length);
+        playerHand.push(this.cardDeck[indexCard]);
+        this.cardDeck.splice(indexCard, 1);
       }
 
       this.playersHand.push(playerHand);
     }
+  }
 
-    this.vira = cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1)[0];
+  increaseValueShackles(vira): void {
+    
+    this.cardDeck.forEach((card, i) => {
+      if(card.value == ((vira.value % 10) + 1)) 
+        card.value = card.suit == 'P' ? 21 : (
+          card.suit == 'E' ? 22 : (
+            card.suit == 'C' ? 23 : 24
+          )
+        );
+    });
   }
 
 }
