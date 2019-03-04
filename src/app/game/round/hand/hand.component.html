@@ -1,8 +1,5 @@
-<div class="row">
-    <div [ngStyle]="{'display': 'inline-flex'}">
-        <div *ngFor="let card of playerHand">        
-            <img class="card" [src]="card.imgSrc">  
-        </div>
-        {{handLevel.label}}
+<div [ngStyle]="{'display': 'inline-flex'}">
+    <div *ngFor="let card of playerHand; let i = index" [ngStyle]="{'marginRight': '10px'}" (click)="removeCard(i)">        
+        <img class="card" [src]="card.imgSrc">  
     </div>
 </div>

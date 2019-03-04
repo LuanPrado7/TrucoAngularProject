@@ -47,9 +47,10 @@ export class RoundComponent implements OnInit  {
     
     this.cardDeck.forEach((card, i) => {
       if(card.value == ((vira.value % 10) + 1)) 
-        card.value = card.suit == 'P' ? 21 : (
-          card.suit == 'E' ? 22 : (
-            card.suit == 'C' ? 23 : 24
+        card.value = 
+          card.suit == 'P' ? 21 : (
+            card.suit == 'E' ? 22 : (
+              card.suit == 'C' ? 23 : 24
           )
         );
     });

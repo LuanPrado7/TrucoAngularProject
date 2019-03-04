@@ -54,6 +54,10 @@ export class HandComponent implements OnInit {
       
     return handLevel.filter(level => handSum >= level.range[0] && handSum <= level.range[1])[0];
   }
+
+  removeCard(cardIndex): void {
+    this.playerHand.splice(cardIndex, 1);
+  }
 }
 
 export class HandLevel{

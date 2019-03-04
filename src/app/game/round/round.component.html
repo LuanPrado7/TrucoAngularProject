@@ -1,5 +1,10 @@
-<hand *ngFor="let playerHand of playersHand; let i = index" [playerHand]="playersHand[i]"></hand>
+<hand 
+  *ngFor="let playerHand of playersHand; let i = index"
+  class="playerHand handPos{{i + 1}}"
+  [ngStyle]="{'marginLeft': -(90*playersHand[i].length/2) + 'px'}" 
+  [playerHand]="playersHand[i]">
+</hand>
 
-<div class="row">
-  <img class="card" [src]="vira.imgSrc">
-</div>
+<img class="card viraPos" [src]="vira.imgSrc">
+
+<img class="card deckPos" src="assets/cards/purple_back.png">
