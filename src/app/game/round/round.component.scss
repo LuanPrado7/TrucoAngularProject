@@ -20,22 +20,58 @@
     margin-top: -66px;
 }
 
-.handPos1 {
-    left: 50%;
-    top: 85%;
+.player1 {
+    >.playedCardPlayer {
+        position: absolute;
+        margin-left: -45px;
+        top: 60%;
+        left: 50%  
+    }
+
+    >.handPos {
+        left: 50%;
+        top: 85%;
+    }
 }
 
-.handPos2 {
-    left: 50%;
-    top: 15%;
+.player2 {
+    >.playedCardPlayer {
+        position: absolute;
+        margin-top: -66px;
+        top: 50%;
+        left: 40%  
+    }
+
+    >.handPos {
+        left: 15%;
+        top: 50%;
+    }
 }
 
-.handPos3 {
-    left: 85%;
-    top: 50%;
+.player3 {
+    >.playedCardPlayer {
+        position: absolute;
+        margin-left: -45px;
+        top: 25%;
+        left: 50%  
+    }
+
+    >.handPos {
+        left: 50%;
+        top: 15%;
+    }
 }
 
-.handPos4 {
-    left: 15%;
-    top: 50%;
+.player4 {
+    >.playedCardPlayer {
+        position: absolute;
+        margin-top: -66px;
+        top: 50%;
+        left: 57%  
+    }
+
+    >.handPos {
+        left: 85%;
+        top: 50%;
+    }
 }

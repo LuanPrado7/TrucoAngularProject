@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Card } from '../../card-deck/card-deck';
+import { Player } from '../../player/player';
 
 @Component({
   selector: 'hand',
@@ -8,14 +9,17 @@ import { Card } from '../../card-deck/card-deck';
 })
 export class HandComponent implements OnInit {
 
-  @Input() playerHand: Card[];
+  @Input() player: Player;
+  @Input() isPlayerTurn: boolean;
+  @Output() playedCard = new EventEmitter<Card>();
+
   handSum: number;
   handLevel: HandLevel;
 
   constructor() { }
 
   ngOnInit() {
-    this.handSum = this.playerHand.reduce((prev, card) => prev + card.value, 0);
+    this.handSum = this.player.hand.reduce((prev, card) => prev + card.value, 0);
     this.handLevel = this.determineHandLevel(this.handSum);
   }
 
@@ -52,11 +56,14 @@ export class HandComponent implements OnInit {
       }
     ]
       
-    return handLevel.filter(level => handSum >= level.range[0] && handSum <= level.range[1])[0];
+    return handLevel.find(level => handSum >= level.range[0] && handSum <= level.range[1]);
   }
 
-  removeCard(cardIndex): void {
-    this.playerHand.splice(cardIndex, 1);
+  playCard(card: Card): void {
+    if(this.isPlayerTurn) {
+      this.player.hand.splice(this.player.hand.findIndex(c => c.number == card.number && c.suit == card.suit), 1);
+      this.playedCard.emit(card);
+    }
   }
 }
 

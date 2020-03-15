@@ -1,9 +1,14 @@
-<hand 
-  *ngFor="let playerHand of playersHand; let i = index"
-  class="playerHand handPos{{i + 1}}"
-  [ngStyle]="{'marginLeft': -(90*playersHand[i].length/2) + 'px'}" 
-  [playerHand]="playersHand[i]">
-</hand>
+<div class="player{{i + 1}}" *ngFor="let player of players; let i = index">
+  <hand class="playerHand handPos"
+    [ngStyle]="{'marginLeft': -(90*players[i].hand.length/2) + 'px'}" 
+    [player]="player"
+    [isPlayerTurn]="player == playerTurn"
+    (playedCard)="playerPlayCard($event)">
+  </hand>
+
+  <img *ngIf="player.playedCard" class="card playedCardPlayer" [src]="player.playedCard.imgSrc">
+</div>
+
 
 <img class="card viraPos" [src]="vira.imgSrc">
 
