@@ -1,5 +1,12 @@
 <div [ngStyle]="{'display': 'inline-flex'}">
-    <div *ngFor="let card of player.hand" [ngStyle]="{'marginRight': '10px'}" (click)="playCard(card)">        
-        <img class="card" [src]="card.imgSrc">  
+    <div
+        *ngFor="let card of player.hand"
+        [ngStyle]="{'marginRight': '10px'}"
+        (click)="playCard(card)"
+    >
+        <img
+            class="card"
+            [src]="card.imgSrc"
+        >
     </div>
 </div>
