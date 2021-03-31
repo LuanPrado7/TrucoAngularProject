@@ -6,6 +6,7 @@ import { ActionComponent } from './round/action/action.component';
 import { GameComponent } from './game.component';
 import { RoundComponent } from './round/round.component';
 import { CardDeckComponent } from './card-deck/card-deck.component';
+import { ScoreComponent } from './score/score.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CardDeckComponent } from './card-deck/card-deck.component';
       ActionComponent,
       GameComponent,
       RoundComponent,
-      CardDeckComponent
+      CardDeckComponent,
+      ScoreComponent
     ],
   imports: [
     CommonModule

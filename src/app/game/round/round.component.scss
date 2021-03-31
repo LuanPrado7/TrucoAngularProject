@@ -18,9 +18,18 @@
 .playerHand {
     position: absolute;
     margin-top: -66px;
+
+    .playerInfo {
+        position: absolute;
+        margin: -25px 0px 0px 100px;
+    }
 }
 
 .player1 {
+    .playerInfo {
+        margin: 85px 0 0px -15px;
+    }
+
     >.playedCardPlayer {
         position: absolute;
         margin-left: -45px;
@@ -35,20 +44,28 @@
 }
 
 .player2 {
+    .playerInfo {
+        margin: 85px 0 0px -15px;
+    }
+
     >.playedCardPlayer {
         position: absolute;
         margin-top: -66px;
         top: 50%;
-        left: 40%  
+        left: 57%  
     }
 
     >.handPos {
-        left: 15%;
+        left: 85%;
         top: 50%;
     }
 }
 
 .player3 {
+    .playerInfo {
+        margin: -100px 0 0px -15px;
+    }
+
     >.playedCardPlayer {
         position: absolute;
         margin-left: -45px;
@@ -63,15 +80,27 @@
 }
 
 .player4 {
+    .playerInfo {
+        margin: 85px 0 0px -15px;
+    }
+
     >.playedCardPlayer {
         position: absolute;
         margin-top: -66px;
         top: 50%;
-        left: 57%  
+        left: 40%  
     }
 
     >.handPos {
-        left: 85%;
+        left: 15%;
         top: 50%;
     }
+}
+
+.blue {
+    color: blue;
+}
+
+.red {
+    color: red;
 }

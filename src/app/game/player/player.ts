@@ -7,4 +7,5 @@ export class Player {
     position?: number;
     hand?: Card[];
     playedCard?: Card;
+    team: number;
 }

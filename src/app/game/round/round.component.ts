@@ -1,4 +1,5 @@
 import { Component, Input, AfterContentInit, OnInit } from '@angular/core';
+import { TeamEnum } from 'src/shared/enums/Team.enum';
 import { Card } from '../card-deck/card-deck';
 import { Player } from '../player/player';
 
@@ -10,14 +11,14 @@ import { Player } from '../player/player';
 export class RoundComponent implements OnInit  {
   
   @Input() cardDeck: Card[];
+  @Input() players: Array<Player>;
+  @Input() nPlayers: number;
+
   vira: Card;
-  nPlayers: number;
-  players: Array<Player>;
   playerTurn: Player;
   
   constructor() { 
     this.nPlayers = 4;
-    this.players = [];
   }
 
   ngOnInit () {
@@ -28,13 +29,16 @@ export class RoundComponent implements OnInit  {
     this.playerTurn = this.players.find(p => p.position == 1);
   }
 
+  get TeamEnum() {
+    return TeamEnum;
+  }
+
   defineVira(): Card {
     return this.cardDeck.splice(Math.floor(Math.random() * this.cardDeck.length), 1)[0];
   }
 
   distributeCards(nPlayer): void {  
     for(let i = 1; i <= nPlayer; i++) {
-      let player: Player;
       let hand: Card[] = [];
 
       for(let j = 0; j < 3; j++) {
@@ -45,12 +49,8 @@ export class RoundComponent implements OnInit  {
         this.cardDeck.splice(indexCard, 1);
       }
 
-      player = {
-        position: i,
-        hand: hand
-      }
-
-      this.players.push(player);
+      this.players[i - 1].position = i;
+      this.players[i - 1].hand = hand;
     }
   }
 
