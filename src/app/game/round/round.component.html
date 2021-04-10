@@ -5,6 +5,7 @@
     <label
         [class.blue]="player.team == TeamEnum.Blue"
         [class.red]="player.team == TeamEnum.Red"
+        [class.underline]="player == playerTurn"
         class="playerHand handPos playerInfo"
     >
         {{player.name}}
